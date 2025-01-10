@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-python-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-python
+  template:
+    metadata:
+      labels:
+        app: demo-python
+    spec:
+      containers:
+      - name: demo-python
+        image: 891612560902.dkr.ecr.ap-south-1.amazonaws.com/default/demo_python:latest
+        ports:
+        - containerPort: 5000
+
